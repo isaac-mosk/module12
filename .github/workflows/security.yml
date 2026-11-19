@@ -5,13 +5,13 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@<pin-a-sha-in-part-2>
+      - uses: actions/checkout@<main>
         with: { fetch-depth: 0 }   # gitleaks needs history
 
       # GATE: secret scan — exit non-zero on a finding, so the build fails
       - name: Secret scan (Gitleaks)
         run: |
-          docker run -v "${{ github.workspace }}:/repo" zricethezav/gitleaks:latest \
+          docker run -v "${{ github.workspace }}:/repo" module12 \
             detect --source /repo --exit-code 1
 
       # GATE or REPORT (your choice): SAST
