@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
    #   - uses: actions/checkout@<pin-a-sha-in-part-2>
-    #    with: { fetch-depth: 0 }   # gitleaks needs history
+        with: { fetch-depth: 0 }   # gitleaks needs history
 
       # GATE: secret scan — exit non-zero on a finding, so the build fails
       - name: Secret scan (Gitleaks)
